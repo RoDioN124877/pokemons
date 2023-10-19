@@ -1,0 +1,68 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1440px ;
+    margin: auto;
+    gap: 100px;
+    max-height: 755px;
+    overflow: auto;
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+
+}
+.pokemons{
+    background-color: rgba(0, 0, 0, 0.521);
+    height: 1000px;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.exe{
+    position: fixed;
+    left: 13%;
+}
+.pok_one {
+    min-width: 50px;
+    min-height: 50px;
+    border: 1px solid black;
+}
+.pok_two {
+    min-width: 50px;
+    min-height: 50px;
+    border: 1px solid black;
+}
+.pok_get_container{
+    display: flex;
+    gap: 50px;
+}
+.pok_fight{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+.Fight{
+    width: 100px;
+}
+
+.box_animate_1 {
+    animation: 2s animate_2 forwards;
+  }
+
+  @keyframes animate_2 {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(20deg);
+    }
+  }
