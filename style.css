@@ -271,6 +271,7 @@ label {
     transform: scaleX(0);
     transition: 0.5s;
     transform-origin: left;
+    background-color: #fff;
 }
 
 .sc {
