@@ -5,6 +5,7 @@ const pok_two = document.querySelector('.pok_two');
 const exe = document.querySelector('.exe');
 const win = document.querySelector('.win');
 const Fight = document.querySelector('.Fight');
+const rest = document.querySelector('.rest');
 let index = 0;
 let pok_num = null;
 
@@ -13,7 +14,6 @@ function get_api(step) {
         .then(res => res.json())
         .then(data => {
             return data;
-
         });
 }
 
@@ -31,7 +31,7 @@ async function start() {
 function render_pokemon(info) {
     index++;
     container.innerHTML += `
-        <div id='${index}'>
+        <div id='${index}' class = "poks_search">
             <img class="img" src="${info.sprites.front_shiny}">
             <p class="name">${info.name}</p>
             <h4>stats:</h4>
@@ -51,7 +51,6 @@ async function add_pock() {
     const btns = document.querySelectorAll('.add');
     btns.forEach(i => {
         i.addEventListener('click', () => {
-            console.log(i);
             const block_pcmn = i.parentNode;
             const img = block_pcmn.querySelector('.img').src;
             const name = block_pcmn.querySelector('.name');
@@ -65,7 +64,6 @@ async function add_pock() {
 
             const poks = document.querySelectorAll('.poks');
             poks_get_arr(poks)
-            console.log(poks);
         });
     });
 }
@@ -102,29 +100,67 @@ function render_new_pok(name_n, img_n, hp_n, attack_n, defense_n, special_attack
     }
 }
 
-function poks_get_arr(arr){
+function poks_get_arr(arr) {
+    let hp_one = Number(arr[0].querySelectorAll('.hp')[0].textContent.substring(4));
+    let attack_one = Number(arr[0].querySelectorAll('.attack')[0].textContent.substring(8));
+    let defense_one = Number(arr[0].querySelectorAll('.defense')[0].textContent.substring(9));
+    let special_attack_one = Number(arr[0].querySelectorAll('.special-attack')[0].textContent.substring(16));
+    let special_defense_one = Number(arr[0].querySelectorAll('.special-defense')[0].textContent.substring(17));
+    let speed_one = Number(arr[0].querySelectorAll('.speed')[0].textContent.substring(7));
 
-    console.log(arr);
-    let hp_one =  Number(arr[0].querySelectorAll('.hp')[0].textContent.substring(4));
-    let attack_one =  Number(arr[0].querySelectorAll('.attack')[0].textContent.substring(8));
-    let defense_one =  Number(arr[0].querySelectorAll('.defense')[0].textContent.substring(9));
-    let special_attack_one = Number( arr[0].querySelectorAll('.special-attack')[0].textContent.substring(16));
-    let special_defense_one =  Number(arr[0].querySelectorAll('.special-defense')[0].textContent.substring(17));
-    let speed_one =  Number(arr[0].querySelectorAll('.speed')[0].textContent.substring(7));
-
-    let hp_two =  Number(arr[1].querySelectorAll('.hp')[0].textContent.substring(4));
-    let attack_two =  Number(arr[1].querySelectorAll('.attack')[0].textContent.substring(8));
-    let defense_two=  Number(arr[1].querySelectorAll('.defense')[0].textContent.substring(9));
-    let special_attack_two =  Number(arr[1].querySelectorAll('.special-attack')[0].textContent.substring(16));
-    let special_defense_two =  Number(arr[1].querySelectorAll('.special-defense')[0].textContent.substring(17));
+    let hp_two = Number(arr[1].querySelectorAll('.hp')[0].textContent.substring(4));
+    let attack_two = Number(arr[1].querySelectorAll('.attack')[0].textContent.substring(8));
+    let defense_two = Number(arr[1].querySelectorAll('.defense')[0].textContent.substring(9));
+    let special_attack_two = Number(arr[1].querySelectorAll('.special-attack')[0].textContent.substring(16));
+    let special_defense_two = Number(arr[1].querySelectorAll('.special-defense')[0].textContent.substring(17));
     let speed_two = Number(arr[1].querySelectorAll('.speed')[0].textContent.substring(7));
 
     Fight.addEventListener('click', () => {
-        let res_one = ((attack_one*speed_one)+special_attack_one)/((hp_two*defense_two)+special_defense_two)
-        let res_two = ((attack_two*speed_two)+special_attack_two)/((hp_one*defense_one)+special_defense_one)
-        res_one>res_two?win.innerHTML=`первый покимон по имени - ${arr[0].querySelector('.name').textContent} победил!`:
-        win.innerHTML=`второй покимон по имени - ${arr[1].querySelector('.name').textContent} победил!`;
+        arr[0].parentNode.classList.remove('lose_p')
+        arr[0].parentNode.classList.remove('win_p')
+        arr[1].parentNode.classList.remove('win_p')
+        arr[1].parentNode.classList.remove('lose_p2')
+
+        arr[0].parentNode.classList.add('box_animate_1')
+        arr[1].parentNode.classList.add('box_animate_2')
+
+        setTimeout(() => {
+            arr[0].parentNode.classList.remove('box_animate_1')
+            arr[1].parentNode.classList.remove('box_animate_2')
+        }, 2000)
+        let res_one = ((attack_one * speed_one) + special_attack_one) / ((hp_two * defense_two) + special_defense_two)
+        let res_two = ((attack_two * speed_two) + special_attack_two) / ((hp_one * defense_one) + special_defense_one)
+        if (res_one > res_two) {
+            setTimeout(() => {
+                win.innerHTML = `первый покимон по имени - ${arr[0].querySelector('.name').textContent} победил!`
+                arr[0].parentNode.classList.add('win_p')
+                arr[1].parentNode.classList.add('lose_p2')
+            }, 2100)
+        }
+        else if (res_one < res_two) {
+            setTimeout(() => {
+                win.innerHTML = `второй покимон по имени - ${arr[1].querySelector('.name').textContent} победил!`;
+                arr[0].parentNode.classList.add('lose_p')
+                arr[1].parentNode.classList.add('win_p')
+            }, 2100)
+
+        }
+
+        else if (res_one == res_two) {
+            setTimeout(() => {
+                win.innerHTML = `ничья - ${arr[0].querySelector('.name').textContent} и ${arr[1].querySelector('.name').textContent} оказались равны!`;
+            }, 2100)
+        }
     });
+    rest.addEventListener('click', () => {
+        arr[0].parentNode.classList.remove('lose_p')
+        arr[0].parentNode.classList.remove('win_p')
+        arr[1].parentNode.classList.remove('win_p')
+        arr[1].parentNode.classList.remove('lose_p2')
+        win.innerHTML = ``
+
+    })
+
 }
 
 pok_one.addEventListener('click', () => {
