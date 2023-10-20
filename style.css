@@ -1,13 +1,13 @@
-*{
+* {
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
 }
-.container{
+
+.container {
     display: flex;
     flex-wrap: wrap;
-    max-width: 1440px ;
-    margin: auto;
+    max-width: 1440px;
     gap: 100px;
     max-height: 755px;
     overflow: auto;
@@ -15,154 +15,264 @@
     justify-content: center;
     position: relative;
     z-index: 1;
-
+    padding: 20px;
 }
-.pokemons{
-    background-color: rgba(0, 0, 0, 0.521);
+
+.pokemons {
+    background-color: rgba(0, 0, 0, 0.568);
     max-height: 1000px;
     width: 100%;
     display: none;
     align-items: center;
     justify-content: center;
     position: fixed;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    z-index: 1;
 }
-.exe{
+
+.exe {
     position: fixed;
-    left: 13%;
+    left: 5%;
+    top: 5%;
+    width: 50px;
+    height: 50px;
 }
+
 .pok_one {
-    min-width: 50px;
-    min-height: 50px;
+    min-width: 150px;
+    min-height: 270px;
     border: 1px solid black;
     transition: 1s;
+    cursor: pointer;
+
 
 }
+
 .pok_two {
-    min-width: 50px;
-    min-height: 50px;
+    min-width: 150px;
+    min-height: 270px;
     border: 1px solid black;
     transition: 1s;
+    cursor: pointer;
 
 }
-.pok_get_container{
+
+.pok_get_container {
     display: flex;
     gap: 50px;
 }
-.pok_fight{
+
+.pok_fight {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 50px;
-    padding-top: 90px;
+    padding-top: 40px;
 }
-.Fight{
+
+.Fight {
     width: 100px;
 }
-.btn_cont{
+
+.btn_cont {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
+
 .box_animate_1 {
     animation: 2s animate_1 forwards;
-  }
-.poks{
+}
+
+.poks {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 10px;
 }
-  .poks_search:hover{
+
+.poks_search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.poks_search:hover {
     transform: scale(1.01);
     transition: 0.1s;
 
-  }
-  .add{
-    cursor: pointer;
-  }
+}
 
-  @keyframes animate_1 {
+.add {
+    cursor: pointer;
+}
+
+.searchInput {
+    padding: 10px;
+}
+
+@keyframes animate_1 {
     0% {
-      transform: rotate(0);
-    }
-    10%{
-        transform: rotate(20deg);
-    }
-    20%{
         transform: rotate(0);
     }
-    30%{
+
+    10% {
         transform: rotate(20deg);
     }
-    40%{
+
+    20% {
         transform: rotate(0);
     }
-    50%{
+
+    30% {
         transform: rotate(20deg);
     }
-    60%{
+
+    40% {
         transform: rotate(0);
     }
-    70%{
+
+    50% {
         transform: rotate(20deg);
     }
-    80%{
+
+    60% {
         transform: rotate(0);
     }
-    90%{
+
+    70% {
         transform: rotate(20deg);
     }
-    100%{
+
+    80% {
         transform: rotate(0);
     }
-  }
+
+    90% {
+        transform: rotate(20deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}
+
 .box_animate_2 {
     animation: 2s animate_2 forwards;
-  }
+}
 
-  @keyframes animate_2 {
+@keyframes animate_2 {
     0% {
         transform: rotate(0);
-      }
-      10%{
-          transform: rotate(0);
-      }
-      20%{
-          transform: rotate(-20deg);
-      }
-      30%{
-          transform: rotate(0);
-      }
-      40%{
-          transform: rotate(-20deg);
-      }
-      50%{
-          transform: rotate(0);
-      }
-      60%{
-          transform: rotate(-20deg);
-      }
-      70%{
-          transform: rotate(0);
-      }
-      80%{
-          transform: rotate(-20deg);
-      }
-      90%{
-          transform: rotate(0);
-      }
-      100%{
-          transform: rotate(0);
-      }
-  }
+    }
 
-  .win_p{
+    10% {
+        transform: rotate(0);
+    }
+
+    20% {
+        transform: rotate(-20deg);
+    }
+
+    30% {
+        transform: rotate(0);
+    }
+
+    40% {
+        transform: rotate(-20deg);
+    }
+
+    50% {
+        transform: rotate(0);
+    }
+
+    60% {
+        transform: rotate(-20deg);
+    }
+
+    70% {
+        transform: rotate(0);
+    }
+
+    80% {
+        transform: rotate(-20deg);
+    }
+
+    90% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}
+
+.win_p {
     transform: scale(1.2);
-  }
-  .lose_p{
+}
+
+.lose_p {
     transform: rotate(-90deg) translateY(-100px) translateX(-90px);
 
-  }
-  .lose_p2{
+}
+
+.lose_p2 {
     transform: rotate(90deg) translateY(-100px) translateX(90px);
 
-  }
+}
+
+
+.noneD {
+    display: none;
+}
+
+.flexD {
+    display: flex;
+}
+
+.sort {
+    display: flex;
+    flex-direction: column;
+}
+
+.all_sort {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #fff;
+    padding-left: 50px;
+    padding-right: 50px;
+    gap: 10px;
+}
+
+label {
+    color: #000;
+}
+
+.info_card {
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    margin-left: 100px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.info_information {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    transform: scaleX(0);
+    transition: 0.5s;
+    transform-origin: left;
+}
+
+.sc {
+    transform: scaleX(1);
+}

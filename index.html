@@ -10,11 +10,40 @@
 </head>
 
 <body>
+
     <section class="pokemons">
+        <button class="exe">X</button>
+        <div class="all_sort">
+            <div class="sort">
+                <label for="sortSelect">Сортировка:</label>
+                <select id="sortSelect">
+                    <option value="none">Без сортировки</option>
+                    <option value="hp">Сортировать по HP</option>
+                    <option value="attack">Сортировать по атаке</option>
+                    <option value="defense">Сортировать по защите</option>
+                    <option value="special-attack">Сортировать по особой атаке</option>
+                    <option value="special-defense">Сортировать по особой защите</option>
+                    <option value="speed">Сортировать по скорости</option>
+                </select>
+            </div>
+            <input type="text" class="searchInput" placeholder="Enter Pokemon name">
+        </div>
         <div class="container">
-            <button class="exe">X</button>
         </div>
     </section>
+    <h2 class="info_card">i</h2>
+    <div class="info_information">
+        <p>Игра покемоны</p>
+        <p>чтобы начать игру выбирете 2 покемонов нажав на 2 квадрата</p>
+        <p>чтобы запустить сам бой, нажмите на кнопку Fight!</p>
+        <p>для удобства нажмите "reset" она сбросит анимации</p><br>
+        <p>битва происходит путем вычисления общей силы по формуле :</p>
+        <p>((скорость атаки * атаку ) + супер атака) / ((защиту * здоровье) + супер защита)</p><br>
+        <p>чтобы увеличить количество покимонов - </p>
+        <p>1)откройте файл Api.js в любом доступном редакторе</p>
+        <p>дальше все написанно в самом коде</p>
+
+    </div>
     <div class="pok_fight">
         <div class="pok_get_container">
             <div class="pok_one"></div>
@@ -27,7 +56,6 @@
         <div class="win"></div>
 
     </div>
-
 
 
     <script src="Api.js"></script>
