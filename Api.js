@@ -3,7 +3,7 @@
 //ее значение это то сколько покемонов вывести, 
 //чем больше тем дольше грузит сайт 
 //↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-let ta_samaia_peremennaya = 10;
+let ta_samaia_peremennaya = 500;
 
 const container = document.querySelector('.container');
 const pokemons = document.querySelector('.pokemons');
